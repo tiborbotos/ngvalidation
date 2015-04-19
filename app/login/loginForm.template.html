@@ -1,0 +1,45 @@
+<div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="well col-lg-4 col-of-" ng-controller="LoginController as login">
+                <pre>{{login.data | json}}<br>{{loginForm.$invalid}}</pre>
+
+                <form ng-submit="login.onLogin()"
+                      bean-id="LoginDto"
+                      jsr-validation
+                      class="login-form"
+                      name="loginForm" novalidate>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input ng-model="login.data.username"
+                               type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    </div>
+
+                    <div class="form-group email-address">
+                        <label for="emailAddress">Email</label>
+                        <input ng-model="login.data.email"
+                               type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="Enter email">
+                        <p class="error-msg-container">
+
+                        </p>
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input ng-model="login.data.autologin"
+                                   name="autoLogin"
+                                   type="checkbox">Auto login
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
